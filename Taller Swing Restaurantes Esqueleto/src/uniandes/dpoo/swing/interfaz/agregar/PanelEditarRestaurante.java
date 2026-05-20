@@ -1,6 +1,5 @@
 package uniandes.dpoo.swing.interfaz.agregar;
 
-import java.awt.FlowLayout;
 import java.awt.GridLayout;
 
 import javax.swing.JComboBox;
@@ -28,17 +27,24 @@ public class PanelEditarRestaurante extends JPanel
 
     public PanelEditarRestaurante( )
     {
-        // Crea el campo para el nombre con una etiqueta al frente
-        // TODO completar
+    	setLayout(new GridLayout(3,2));
 
-        // Crea el selector para la calificación con una etiqueta al frente
-        // TODO completar
+    	txtNombre = new JTextField();
 
-        // Crea el selector para indicar si ya ha sido visitado, con una etiqueta al frente
-        // TODO completar
+    	String[] calificaciones = {"1","2","3","4","5"};
+    	cbbCalificacion = new JComboBox<>(calificaciones);
 
-        // Agregar todos los elementos al panel
-        // TODO completar
+    	String[] visitados = {"Sí","No"};
+    	cbbVisitado = new JComboBox<>(visitados);
+
+    	add(new JLabel("Nombre"));
+    	add(txtNombre);
+
+    	add(new JLabel("Calificación"));
+    	add(cbbCalificacion);
+
+    	add(new JLabel("Visitado"));
+    	add(cbbVisitado);
 
     }
 
@@ -48,8 +54,8 @@ public class PanelEditarRestaurante extends JPanel
      */
     public boolean getVisitado( )
     {
-        // TODO completar
-        return false;
+    	String visitado = (String)cbbVisitado.getSelectedItem();
+    	return visitado.equals("Sí");
     }
 
     /**
@@ -68,7 +74,6 @@ public class PanelEditarRestaurante extends JPanel
      */
     public String getNombre( )
     {
-        // TODO completar
-        return "";
+    	return txtNombre.getText();
     }
 }

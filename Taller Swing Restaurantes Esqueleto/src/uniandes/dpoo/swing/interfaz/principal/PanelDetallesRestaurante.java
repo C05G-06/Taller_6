@@ -1,6 +1,5 @@
 package uniandes.dpoo.swing.interfaz.principal;
 
-import java.awt.FlowLayout;
 import java.awt.GridLayout;
 
 import javax.swing.ImageIcon;
@@ -30,17 +29,21 @@ public class PanelDetallesRestaurante extends JPanel
 
     public PanelDetallesRestaurante( )
     {
-        // Configura la etiqueta para el nombre
-        // TODO completar el constructor
+    	setLayout(new GridLayout(3,2));
 
-        // Configura la etiqueta para la calificación
-        // TODO completar el constructor
+    	labNombre = new JLabel("");
+    	labCalificacion = new JLabel("");
+    	chkVisitado = new JCheckBox();
+    	chkVisitado.setEnabled(false);
 
-        // Configura el checkbox para indicar si ya se visitaó o no el restaurante
-        // TODO completar el constructor
+    	add(new JLabel("Nombre:"));
+    	add(labNombre);
 
-        // Organiza los elementos en la venta
-        // TODO completar el constructor
+    	add(new JLabel("Calificación:"));
+    	add(labCalificacion);
+
+    	add(new JLabel("Visitado:"));
+    	add(chkVisitado);
     }
 
     /**
@@ -51,7 +54,12 @@ public class PanelDetallesRestaurante extends JPanel
      */
     private void actualizarRestaurante( String nombre, int calificacion, boolean visitado )
     {
-     // TODO completar actualizarRestaurante
+    	labNombre.setText(nombre);
+
+    	ImageIcon icono = buscarIconoCalificacion(calificacion);
+    	labCalificacion.setIcon(icono);
+
+    	chkVisitado.setSelected(visitado);
     }
 
     /**
